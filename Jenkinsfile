@@ -29,7 +29,7 @@ pipeline {
     }
     
     stages {
-        stage ('CheckOUt') {
+        stage ('Checkout') {
             steps {
                 git url: 'git@github.com:vanthiyadhevan/vprofile-project.git', branch: 'ci-jenkins', credentialsId:('vanthiyadhevan')
             }
