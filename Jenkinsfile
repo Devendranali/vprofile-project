@@ -8,6 +8,7 @@ pipeline {
         PASS = credentials('nexus')
         SNAP_REPO = 'vproflie-snapshot'
         NEXUS_USER = 'admin'
+        NUXUS_PASS = 'VicK#@344'
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vprofile-maven-central'
         NEXUS_URL = 'http://192.168.1.34:8081/'
