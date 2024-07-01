@@ -11,6 +11,7 @@ pipeline {
         NUXUS_PASS = 'VicK#@344'
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vprofile-maven-central'
+        NEXUSIP = '192.168.1.34'
         NEXUS_URL = 'http://192.168.1.34:8081/'
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vprofile-maven-group'
