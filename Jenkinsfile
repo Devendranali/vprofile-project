@@ -5,7 +5,7 @@ pipeline {
         jdk "openjdk-11"
     }
     environment {
-        PASS = credentials('nexus')
+        PASS = CredentialsId('nexus')
         SNAP_REPO = 'vproflie-snapshot'
         NEXUS_USER = 'admin'
         NEXUS_PASS = 'VicK#@344'
@@ -53,6 +53,25 @@ pipeline {
         stage('Checkstyle Analysis') {
             steps {
                 sh 'mvn -s settings.xml checkstyle:checkstyle'
+            }
+        }
+        stage('Upload Artifact To Nexus') {
+            steps {
+                    nexusArtifactUploader(
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        nexusUrl: '${NEXUS_URL}:${NEXUSPORT}',
+                        groupId: 'QA',
+                        version: '${env.BUILD_ID}-${env.BUILD_TIMESTAMP}',
+                        repository: '${RELEASE_REPO}',
+                        credentialsId: '${PASS}',
+                        artifacts: [
+                            [artifactId: vproapp,
+                            classifier: '',
+                            file: 'target/vprofile-v2.war',
+                            type: 'war']
+                        ]
+                    )
             }
         }
     }
