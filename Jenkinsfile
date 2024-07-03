@@ -11,7 +11,7 @@ pipeline {
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vprofile-maven-central'
         NEXUSIP = '192.168.1.34'
-        NEXUS_URL = 'http://192.168.1.34'
+        NEXUS_URL = 'http://192.168.1.34:8081'
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vprofile-maven-group'
     }
@@ -49,9 +49,9 @@ pipeline {
                             nexusArtifactUploader(
                             nexusVersion: 'nexus',
                             protocol: 'http',
-                            nexusUrl: "${NEXUS_URL}:${NEXUSPORT}",
+                            nexusUrl: "${NEXUS_URL}",
                             groupId: 'QA',
-                            version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                            version: "${env.BUILD_ID}",
                             repository: "${RELEASE_REPO}",
                             credentialsId: 'nexus',
                             artifacts: [
