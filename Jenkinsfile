@@ -5,6 +5,7 @@ pipeline {
         jdk "openjdk-11"
     }
     environment {
+        PASS = credentials('nexus')
         SNAP_REPO = 'vproflie-snapshot'
         NEXUS_USER = 'admin'
         NEXUS_PASS = 'VicK#@344'
@@ -45,7 +46,7 @@ pipeline {
         }
         stage('Upload Artifact To Nexus') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'NEXUS_PASS', usernameVariable: 'NEXUS_USER')]) {
+                withCredentials([usernamePassword(credentialsId: '${PASS}')]) {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
