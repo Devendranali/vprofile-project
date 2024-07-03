@@ -46,9 +46,9 @@ pipeline {
         stage('Upload Artifact To Nexus') {
             steps {
                     withCredentials([string(credentialsId: 'nexus', variable: 'PASS')]) {
-                            def nexuscreds = PASS.split(':')
-                            def nexusUser = nexuscreds[0]
-                            def nexusPass = nexuscreds[1]
+                            def nexusCreds = PASS.split(':')
+                            def nexusUser = nexusCreds[0]
+                            def nexusPass = nexusCreds[1]
                             nexusArtifactUploader(
                             nexusVersion: 'nexus',
                             protocol: 'http',
@@ -63,8 +63,8 @@ pipeline {
                                 file: 'target/vprofile-v2.war',
                                 type: 'war']
                             ]
-                            username: nexusUser,
-                            password: nexusPass
+                            username: 'nexusUser',
+                            password: 'nexusPass'
                         )
                     }
                }
