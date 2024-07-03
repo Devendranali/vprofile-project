@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn -s settings.xml -DskipTests install'
+                sh 'maven -s settings.xml -DskipTests install'
             }
             post {
                 success {
