@@ -5,7 +5,7 @@ pipeline {
         jdk "openjdk-11"
     }
     environment {
-        PASS = credentialsId('nexus')
+        // PASS = credentialsId('nexus')
         SNAP_REPO = 'vproflie-snapshot'
         NEXUS_USER = 'admin'
         NEXUS_PASS = 'VicK#@344'
@@ -53,7 +53,7 @@ pipeline {
                         groupId: 'QA',
                         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                         repository: "${RELEASE_REPO}",
-                        credentialsId: 'nexus',
+                        credentialsId: 'Nexus Cred',
                         artifacts: [
                             [artifactId: 'vproapp',
                             classifier: '',
