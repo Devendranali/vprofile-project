@@ -50,7 +50,7 @@ pipeline {
                             nexusVersion: 'nexus3',
                             protocol: 'http',
                             nexusUrl: "${NEXUS_URL}",
-                            groupId: 'QA',
+                            groupId: 'Prod',
                             version: "${env.BUILD_ID}",
                             repository: "${RELEASE_REPO}",
                             credentialsId: 'nexus',
