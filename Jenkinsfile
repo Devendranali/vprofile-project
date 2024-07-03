@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Upload Artifact To Nexus') {
             steps {
-                    withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                    withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: '${NEXUS_USER}', passwordVariable: '${NEXUS_PASS}')]) {
                             nexusArtifactUploader(
                             nexusVersion: 'nexus',
                             protocol: 'http',
