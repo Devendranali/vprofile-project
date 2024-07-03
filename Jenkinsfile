@@ -45,8 +45,8 @@ pipeline {
         }
         stage('Upload Artifact To Nexus') {
             steps {
-                    withCredentials([string(credentialsId: 'nexus', variable: '${PASS}')]) {
-                            def nexuscreds = PASS.split(":")
+                    withCredentials([string(credentialsId: 'nexus', variable: 'PASS')]) {
+                            def nexuscreds = PASS.split(':')
                             def nexusUser = nexuscreds[0]
                             def nexusPass = nexuscreds[1]
                             nexusArtifactUploader(
