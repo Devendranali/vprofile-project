@@ -48,7 +48,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: '${NEXUS_USER}', passwordVariable: '${NEXUS_PASS}')]) {
                             nexusArtifactUploader(
                             nexusVersion: 'nexus3',
-                            // protocol: 'http',
+                            protocol: 'http',
                             nexusUrl: "${NEXUS_URL}",
                             groupId: 'QA',
                             version: "${env.BUILD_ID}",
