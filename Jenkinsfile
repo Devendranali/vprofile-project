@@ -66,7 +66,7 @@ pipeline {
                         repository: '${RELEASE_REPO}',
                         credentialsId: '${PASS}',
                         artifacts: [
-                            [artifactId: vproapp,
+                            [artifactId: 'vproapp',
                             classifier: '',
                             file: 'target/vprofile-v2.war',
                             type: 'war']
