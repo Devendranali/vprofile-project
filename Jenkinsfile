@@ -5,7 +5,6 @@ pipeline {
         jdk "openjdk-11"
     }
     environment {
-        PASS = 
         SNAP_REPO = 'vproflie-snapshot'
         NEXUS_USER = 'admin'
         NEXUS_PASS = 'VicK#@344'
