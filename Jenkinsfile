@@ -47,7 +47,7 @@ pipeline {
             steps {
                     withCredentials([string(credentialsId: 'nexus', variable: '${PASS}')]) {
                             nexusArtifactUploader(
-                            nexusVersion: 'nexus3',
+                            nexusVersion: 'nexus',
                             protocol: 'http',
                             nexusUrl: "${NEXUS_URL}:${NEXUSPORT}",
                             groupId: 'QA',
