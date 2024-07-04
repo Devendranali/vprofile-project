@@ -1,8 +1,8 @@
 def COLOR_MAP = [
-    'SUCCESS' = 'good',
-    'FAILURE' = 'danger',
-    'UNSTABLE' = 'warning',
-    'ABORTED' = 'warning'
+    'SUCCESS' : 'good',
+    'FAILURE' : 'danger',
+    'UNSTABLE' : 'warning',
+    'ABORTED' : 'warning'
 ]
 pipeline {
     agent any
