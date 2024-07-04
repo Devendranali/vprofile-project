@@ -65,7 +65,8 @@ pipeline {
         }
         stage('Upload Artifact To Nexus') {
             steps {
-                    nexusArtifactUploader(
+                withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: '${NEXUS_USER}', passwordVariable: '${NEXUS_PASS}')]) {
+                        nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
                         nexusUrl: '${NEXUSIP}:${NEXUSPORT}',
@@ -80,6 +81,8 @@ pipeline {
                             type: 'war']
                         ]
                     )
+                }
+                    
             }
         }
     }
