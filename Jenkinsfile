@@ -17,7 +17,7 @@ pipeline {
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vprofile-maven-central'
         NEXUSIP = '192.168.1.35'
-        NEXUS_URL = '192.168.1.35:8081'
+        // NEXUS_URL = '192.168.1.35:8081'
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vprofile-maven-group'
     }
