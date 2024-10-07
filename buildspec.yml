@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - echo Installing Maven...
+      - yum install -y maven
+      - echo Maven installed.
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+      - echo Verifying Maven version...
+      - mvn --version
+      - echo Cleaning project...
+      - mvn clean
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Compiling the application and skipping tests...
+      - mvn package -DskipTests
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed successfully.
+
+artifacts:
+  files:
+    - target/*.jar
+  discard-paths: yes
